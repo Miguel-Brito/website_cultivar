@@ -146,7 +146,7 @@ class WebsiteCultivar(http.Controller):
 
     # End of Calendar Code #
 
-        return request.render("website.homepage", {'events': events, 'calendar': cal, "today": c_day, "posts": posts})
+        return request.render("website_cultivar.homepage", {'events': events, 'calendar': cal, "today": c_day, "posts": posts})
 
     @http.route(['/event/<model("event.event"):event>/register'], type='http', auth="public", website=True)
     def event_register(self, event, **post):

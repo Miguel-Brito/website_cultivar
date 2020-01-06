@@ -12,7 +12,7 @@
         """,
     'author':'Communities - Comunicações, Lda',
     'data': [
-        'security/ir.model.access.csv',
+        #'security/ir.model.access.csv',
         'views/assets.xml',
         'views/cultivar_template.xml',
         'views/homepage_template.xml',
@@ -23,7 +23,7 @@
         #'views/event_detail_template.xml',
         'views/event_views.xml',
         'views/products_views.xml',
-        'views/inquiry_event.xml',
+        #'views/inquiry_event.xml',
         'views/recurrence_views.xml',
         'views/partner_type_views.xml',
         'views/location_views.xml',

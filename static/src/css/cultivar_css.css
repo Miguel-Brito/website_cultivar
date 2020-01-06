@@ -158,6 +158,15 @@
     .ded-next_ev-text{font-family: Rajdhani; color: darkgreen; font-size: 21px; font-weight: bold;}
     .ded-next_ev-text a{font-family: Rajdhani; color: darkgreen; font-size: 18px; font-weight: bold;}
 
+
+.col-lg-2 {
+    float: left;
+}
+
+.col-lg-4 {
+    float: left;
+}
+
     @media (max-width:767px){
         .ded-event_name-text{margin-left: 0%;}
         .ded-event_des-text{margin-left: 0%;}

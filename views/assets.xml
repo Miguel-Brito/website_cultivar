@@ -21,7 +21,7 @@
 		  <link href="/website_cultivar/static/src/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet"/>
 		  <link href="/website_cultivar/static/src/lib/magnific-popup/magnific-popup.css" rel="stylesheet"/>
 		  <link href="/website_cultivar/static/src/lib/ionicons/css/ionicons.min.css" rel="stylesheet"/>-->
-			<link href="/website_cultivar/static/src/css/bootstrap-multiselect.css" rel="stylesheet"/>
+			<!--<link href="/website_cultivar/static/src/css/bootstrap-multiselect.css" rel="stylesheet"/>-->
 			<link href="/website_cultivar/static/src/css/cultivar_css.css" rel="stylesheet"/>
 
 		  <!-- Main Stylesheet File -->

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import api, fields, models, tools, _
-from odoo.addons.website.models.website import slug
+from odoo.addons.website.models.website import slugify
 
 # Tabelas relacionadas com partners
 class PartnerCultivarType(models.Model):

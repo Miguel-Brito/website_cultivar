@@ -2,18 +2,20 @@
 <odoo>
 	<data>
 	
-		<template name="Homepage" priority="29" t-name="website.homepage">
+		<template name="Homepage" priority="2" t-name="website_cultivar.homepage">
 			<t t-call="website.layout">
 
 				<div class="container">
 					<!-- Current Day Code -->
-					<div class="col-xs-12 col-sm-3 col-md-2 same_height-divs" style="text-align: center">
+					<!--<div class="col-xs-12 col-sm-3 col-md-2 same_height-divs" style="text-align: center"> -->
+					<div class="col-12 col-md-3 col-lg-2 same_height-divs" style="text-align: center">
 						<span class="c_month_year-text"> 
 							<span t-esc="today[4]"/><br/>
 							<span t-esc="today[5]"/>
 						</span>
 					</div>
-					<div class="col-xs-12 col-sm-6 col-md-4 same_height-divs current_ev-border">
+					<!--<div class="col-xs-12 col-sm-6 col-md-4 same_height-divs current_ev-border"> -->
+					<div class="col-12 col-md-6 col-lg-4 same_height-divs current_ev-border">
 						<div class="c_month-text">
 							Não há luar como o de Janeiro, nem amor como o primeiro.
 						</div>
@@ -30,7 +32,8 @@
 							<img src=""/>
 						</div> -->
 					</div>
-					<div class="col-xs-6 col-sm-3 col-md-2 same_height-divs">
+					<!--<div class="col-xs-6 col-sm-3 col-md-2 same_height-divs">-->
+					<div class="col-6 col-md-3 col-lg-2 same_height-divs">
 						<div style="margin-top:5%" class="clearfix today_temps-text">
 							<div style="width: 20%; float: left;">
 								<span t-esc="today[9]"/>ºC <br/>
@@ -60,7 +63,8 @@
 						<!-- Ultimas -->
 
 						<div t-if="cal_index == 2"> 
-							<div class="col-xs-6 col-sm-6 col-md-4 ultimas-bg day-border same_height-divs">
+							<!--<div class="col-xs-6 col-sm-6 col-md-4 ultimas-bg day-border same_height-divs">-->
+							<div class="col-6 col-md-6 col-lg-4 ultimas-bg day-border same_height-divs">
 								<div class="ult-txt-tit full-width">
 									<p style="padding-top: 4%">ÚLTIMAS</p>
 								</div>
@@ -120,7 +124,8 @@
 						<!-- END of Variables -->
 						
 						<!-- Day code -->
-						<div style="height:165px" t-attf-class="col-xs-6 col-sm-3 col-md-2 {{monthcolor}} day-border same_height-divs">
+						<!--<div style="height:165px" t-attf-class="col-xs-6 col-sm-3 col-md-2 {{monthcolor}} day-border same_height-divs">-->
+						<div style="height:165px" t-attf-class="col-6 col-md-3 col-lg-2 {{monthcolor}} day-border same_height-divs">
 							<div class="clearfix event_day-text" style="height:35px">
 								<div t-if="cal[0] == 1" class="new_month-text">
 									<span t-esc="cal[4]"/>
@@ -132,7 +137,8 @@
             				</div>
             				<hr class="weekday-hr"/>		
             				<div class="clearfix" style="margin-top: -5%;">
-								<div class="col-xs-6 col-sm-6 col-md-6 temp_day-text pull-left">
+								<!--<div class="col-xs-6 col-sm-6 col-md-6 temp_day-text pull-left">-->
+								<div class="col-6 col-md-6 col-lg-6 temp_day-text float-left">
 									<div class="row">
 										<t t-if="cal[9]!='' and cal[10]!= ''">
 											<div style="align:right; text-align:right;">
@@ -157,7 +163,8 @@
 										</t>
 									</div>
 								</div>
-								<div class="col-xs-6 col-sm-6 col-md-6 pull-right">
+								<!--<div class="col-xs-6 col-sm-6 col-md-6 pull-right">-->
+								<div class="col-6 col-md-6 col-lg-6 float-right">
 									<div class="row">
 										<div class="week_day-text">
 											<span t-esc="cal[1]"/>

@@ -95,7 +95,9 @@
     /* END of NavBar Styles */
 
     /* Images styles */
-    .day_weather-icon{height: 25px; width: 25px;}
+    .clear-day{height: 25px; width: 25px; background-size: 25px 25px; background-repeat: no-repeat; background-image: url('/website_cultivar/static/src/img/sun.png'); display: block;}
+    .rain{height: 25px; width: 25px; background-size: 25px 25px; background-repeat: no-repeat; background-image: url('/website_cultivar/static/src/img/rain.png'); display: block;}
+    
     /* END of Images styles */
 
     /* Not Using */

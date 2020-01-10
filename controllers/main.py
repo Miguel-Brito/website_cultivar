@@ -10,6 +10,7 @@ import json
 
 from odoo import http
 from odoo.http import request
+from odoo import api, fields, models, _
 
 
 class WebsiteCultivar(http.Controller):
@@ -66,8 +67,10 @@ class WebsiteCultivar(http.Controller):
         ev_dates = []  # Stores all events dates (0- Date_begin, 1- Date_end, 2- Name)
         date_format = "%Y-%m-%d %H:%M:%S"
         for e in events:
-            conv_begin = datetime.datetime.strptime(e.date_begin, date_format)
-            conv_end = datetime.datetime.strptime(e.date_end, date_format)
+           # conv_begin = datetime.datetime.strptime(e.date_begin, date_format)
+            conv_begin = e.date_begin
+            #conv_end = datetime.datetime.strptime(e.date_end, date_format)
+            conv_end = e.date_end
             start = date(conv_begin.year, conv_begin.month, conv_begin.day)
             end = date(conv_end.year, conv_end.month, conv_end.day)
             ev_dates.append((start, end, e.name, e.id))

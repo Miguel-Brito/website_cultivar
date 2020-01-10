@@ -10,7 +10,7 @@
 			<t t-set="months_name" t-value="['JAN.', 'FEV.', 'MAR.', 'ABR.', 'MAIO.', 'JUN.', 'JUL.', 'AGO.',
 			 'SET.', 'OUT.', 'NOV.', 'DEZ.']"/>
 			<t t-set="week_day_name" t-value="['Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado', 'Domingo']"/>
-			<t t-set="ev_date" t-value="datetime.datetime.strptime(event.date_begin, '%Y-%m-%d %H:%M:%S')"/>
+			<t t-set="ev_date" t-value="event.date_begin"/>
 			<t t-set="week_day" t-value="datetime.date(ev_date.year, ev_date.month, ev_date.day).weekday()"/>
 			<!-- END of Variables -->
 

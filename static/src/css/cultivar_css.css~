@@ -104,7 +104,7 @@
    
    
    
-@media (min-width: 1600px) {
+@media (min-width: 1908px) {
 body{
 background-image:url(/website_cultivar/static/src/img/top.svg), url(/website_cultivar/static/src/img/top_right.svg);
 background-position: top center, top right;

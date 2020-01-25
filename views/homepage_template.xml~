@@ -54,7 +54,7 @@ float: left;"/>
 							<hr class="today2-hr"/>
 						</div>
 						<div class="clearfix">
-							<div class="today-day-text">
+							<div class="day-text">
 								<span t-esc="today[0]" style="color:green"/>
 							</div>
 						</div>

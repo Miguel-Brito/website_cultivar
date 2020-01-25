@@ -1,0 +1,37 @@
+# -*- coding: utf-8 -*-
+
+{
+    'name':'Website Cultivar',
+    'category': 'Theme',
+    'website': 'https://www.cultivar.pt',
+    'summary': 'cultivar',
+    'version':'1.0',
+    'description': """
+    Website Cultivar
+==========================
+        """,
+    'author':'Communities - Comunicações, Lda',
+    'data': [
+        #'security/ir.model.access.csv',
+        'views/assets.xml',
+        #'views/cultivar_template.xml',
+        'views/homepage_template.xml',
+        #'views/contact_template.xml',
+        #'views/404_template.xml',
+        #'views/login_template.xml',
+        'views/event_template.xml',
+        'views/event_detail_template.xml',
+        'views/event_views.xml',
+        'views/products_views.xml',
+        #'views/inquiry_event.xml',
+        'views/recurrence_views.xml',
+        'views/partner_type_views.xml',
+        'views/location_views.xml',
+        #'views/event_location_views.xml',
+    ],
+    'depends': ['crm', 'contacts', 'website', 'website_crm', 'event', 'website_event', 'website_blog'],
+    'installable': True,
+    'auto_install': False,
+    'application': True,
+    'live_test_url': 'http://www.cultivar.pt',
+}

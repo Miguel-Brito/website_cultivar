@@ -80,8 +80,8 @@ class WebsiteCultivar(http.Controller):
         def moon_phases(day, month, year):
             ages = [18, 0, 11, 22, 3, 14, 25, 6, 17, 28, 9, 20, 1, 12, 23, 4, 15, 26, 7]
             offsets = [-1, 1, 0, 1, 2, 3, 4, 5, 7, 7, 9, 9]
-            all_phases = ["Lua-nova", "Lua-crescente", "Quarto-crescente", "Lua-crescente-convexa",
-                            "Lua-cheia", "Lua-minguante-convexa", "Quarto-minguante", "Lua-minguante"]
+            all_phases = ["Lua nova", "Lua crescente", "Quarto crescente", "Lua crescente convexa",
+                            "Lua cheia", "Lua minguante convexa", "Quarto minguante", "Lua minguante"]
             if day == 31:
                 day = 1
             days_into_phase = ((ages[(year + 1) % 19] + ((day + offsets[month-1]) % 30) + (year < 1900)) % 30)

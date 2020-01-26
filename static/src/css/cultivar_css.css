@@ -186,7 +186,7 @@ padding: 10px;
     .clear-day{height: 40px;; width: 40px; background-size: 40px 40px; background-repeat: no-repeat; background-image: url('/website_cultivar/static/src/img/sun.svg'); display: block;}
     .rain{height: 40px;; width: 40px; background-size: 40px 40px; background-repeat: no-repeat; background-image: url('/website_cultivar/static/src/img/rain.svg'); display: block;}
     .partly-cloudy-day{height: 40px;; width: 40px; background-size: 40px 40px; background-repeat: no-repeat; background-image: url('/website_cultivar/static/src/img/fewclouds.svg'); display: block;}
-    .cloudy{height: 40px;; width: 40px; background-size: 40px 40px; background-repeat: no-repeat; background-image: url('/website_cultivar/static/src/img/scatteredclouds.svg'); display: block;}
+    .cloudy{height: 40px;; width: 40px; background-size: 40px 40px; background-repeat: no-repeat; background-image: url('/website_cultivar/static/src/img/cloudy.svg'); display: block;}
     .broken-clouds{height: 40px;; width: 40px; background-size: 40px 40px; background-repeat: no-repeat; background-image: url('/website_cultivar/static/src/img/broken-clouds.svg'); display: block;} 
     .shower-rain{height: 40px;; width: 40px; background-size: 40px 40px; background-repeat: no-repeat; background-image: url('/website_cultivar/static/src/img/shower-rain.svg'); display: block;} 
     .thunderstorm{height: 40px;; width: 40px; background-size: 40px 40px; background-repeat: no-repeat; background-image: url('/website_cultivar/static/src/img/thunderstorm.svg'); display: block;} 

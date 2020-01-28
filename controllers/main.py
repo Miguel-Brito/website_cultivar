@@ -16,7 +16,7 @@ from odoo import api, fields, models, _
 class WebsiteCultivar(http.Controller):
     @http.route('/page/homepage', type='http', auth="public", website=True)
     def cultivar_home(self, **post):
-        events = request.env['event.event'].sudo().search([]) # Gets all events on database
+        events = request.env['event.event'].sudo().search([('is_published','=',True)]) # Gets all events on database
         posts = request.env['blog.post'].sudo().search([]) # Gets all posts on database   
         ip = request.httprequest.environ["REMOTE_ADDR"] # Gets client IP
         if ip == "127.0.0.1": # If running on server

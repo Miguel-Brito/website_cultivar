@@ -1,0 +1,97 @@
+<odoo>
+    <data>
+
+        <menuitem id="products_menu" parent="event.event_main_menu" name="Gerir Produtos"/>
+
+        <!-- Products Type -->
+        <!-- View Definition -->
+        <record id="view_product_type_tree" model="ir.ui.view">
+            <field name="name">event.event.cultivar.products.type.tree</field>
+            <field name="model">event.product.type</field>
+            <field name="arch" type="xml">
+                <tree string="Tipo de Produtos">
+                    <field name="name"/>
+                    <field name="parent_id" string="Faz parte de:"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View Definition -->
+        <record id="view_product_type_form" model="ir.ui.view">
+            <field name="name">event.event.cultivar.products.type.form</field>
+            <field name="model">event.product.type</field>
+            <field name="arch" type="xml">
+                <form string="Tipo de Produtos">
+                    <group>
+                        <group> 
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="parent_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action Window Definition -->
+        <record id="product_type_window" model="ir.actions.act_window">
+            <field name="name">Tipologia dos Produtos</field>
+            <field name="res_model">event.product.type</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Action Menu Item Related To Above Action Window -->
+        <menuitem action="product_type_window" id="product_type_submenu" parent="products_menu" name="Tipologia de produtos" sequence="1"/>
+
+        <!-- Products -->
+        <!-- View Definition -->
+        <record id="view_product_tree" model="ir.ui.view">
+            <field name="name">event.event.cultivar.products.tree</field>
+            <field name="model">event.product</field>
+            <field name="arch" type="xml">
+                <tree string="Produtos">
+                    <field name="name"/>
+                    <field name="product_type_id" string="Tipologia"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View Definition -->
+        <record id="view_product_form" model="ir.ui.view">
+            <field name="name">event.event.cultivar.products.form</field>
+            <field name="model">event.product</field>
+            <field name="arch" type="xml">
+                <form string="Produtos">
+                    <group>
+                        <group> 
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="product_type_id" string="Tipologia"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action Window Definition -->
+        <record id="products_window" model="ir.actions.act_window">
+            <field name="name">Produtos</field>
+            <field name="res_model">event.product</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Action Menu Item Related To Above Action Window -->
+        <menuitem action="products_window" id="products_submenu" parent="products_menu" name="Produtos" sequence="2"/>
+
+    </data>
+</odoo>

@@ -400,7 +400,7 @@
 												<label for="products" style="display:none;">
 													Produtos Transacionados
 												</label>
-												<select id="dropdownlist" name="produtos" class="form-control">
+												<select id="dropdownlist" name="produtos" class="form-control" style="display:none;">
 													<option value="-1" selected="true">
 														Selecione os produtos
 													</option>
@@ -413,7 +413,6 @@
 											</div>
 										</div>
 
-										<div class="col-sm-6">
 											<div class="form-group">
 												<div id="all_products" style="display:none; height: 200px; width: 250px; overflow-y: scroll; border:2px solid #ccc; float:left;">
 													<t t-foreach="products" t-as="p">
@@ -423,7 +422,6 @@
 													</t>
 												</div>
 											</div>
-										</div>
 
 										<!-- Jquery, aplicar multiple nas categorias / filtro -->
 										<script>
@@ -463,6 +461,13 @@
 											});
 
 
+
+											$('#all_products').multiselect({
+												includeSelectAllOption: true,
+												selectAllText: 'Todos',
+												nonSelectedText: 'Selecione uma categoria',
+												allSelectedText: 'Todos as categorias selecionadas'
+											});
 
 
 											$('#products_type_select').multiselect({

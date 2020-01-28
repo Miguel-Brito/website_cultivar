@@ -1,0 +1,16 @@
+# -*- coding: utf-8 -*-
+from odoo import api, fields, models, tools, _
+
+class EventCategories(models.Model):
+    _name = "categories"
+
+    name = fields.Char(string="Nome da Categoria")
+    description = fields.Char(string="Descrição")
+    subcategories = fields.One2many("subcategories",'categorie', string="Subcategorias")
+    
+class EventSubcategories(models.Model):
+    _name = "subcategories"
+
+    name = fields.Char(string="Nome da Subcategoria")
+    description = fields.Char(string="Descrição")
+    categorie = fields.Many2one("categories", string="Categoria")

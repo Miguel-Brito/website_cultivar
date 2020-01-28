@@ -14,7 +14,7 @@
 							<p>Próximos eventos:</p>
 							<ul>
 								<t t-foreach="events" t-as="nevent">
-									<t t-set="nevent_date" t-value="nevent.date_begin"/>
+									<t t-set="nevent_date" t-value="datetime.datetime.strptime(nevent.date_begin, '%Y-%m-%d %H:%M:%S')"/>
 									<a itemprop="url" t-att-class="nevent.state == 'done' and 'text-success'" t-attf-href="/event/#{ slug(nevent) }/#{(not nevent.menu_id) and 'register' or ''}">
 										<li t-esc="'{0} - {1.day}/{1.month}/{1.year}'.format(nevent.name, nevent_date)"/>
 									</a>

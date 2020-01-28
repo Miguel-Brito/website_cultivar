@@ -206,14 +206,89 @@ padding: 10px;
 
 
 
+  /*form inquiry*/
+  
+.form-control {
+    width: 300px;
+}
+
+.form-group {
+    width: 300px;
+}
+
+
+.breadcrumb {
+    background: transparent;!important;
+    font-family: Rajdhani; 
+    color: white;
+    border-radius: 0;
+
+    
+}
+
+
+.card {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+
+}
+
+.card-header {
+    background-color: #00974B;
+    color: white;
+    font-family: Rajdhani;
+
+
+
+}
+
+.alert {
+    border-radius: 0;
+}
+
+
+.card-header:first-child {
+    border-radius: 0;!important;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #FFFFFF;!important;
+    background-color: green;
+    font-weight: bold;
+    border-radius: 0;
+
+}
+
+a {
+    color: green;
+    font-family: Rajdhani;
+    font-weight: bold;
+    border-radius: 0;
+
+}
+
+.input-group > .input-group-prepend > .btn, .input-group > .input-group-prepend > .input-group-text, .input-group > .input-group-append:not(:last-child) > .btn, .input-group > .input-group-append:not(:last-child) > .input-group-text, .input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group > .input-group-append:last-child > .input-group-text:not(:last-child) {
+
+    
+    border-radius: 0;
+
+}
+
+
+.btn {
+    border-radius: 0;
+}
+
+
+.form-control {
+    border-radius: 0;
+}
 
 
 
 
-
-
-
-
+ /*form inquiry end*/
 
 
     /* END of Images styles */

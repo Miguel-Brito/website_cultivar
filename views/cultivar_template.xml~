@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <data>
+
 
     <template id="header_cultivar" name="cultivar layout top Menu" inherit_id="website.layout">
 
-      <xpath expr="//div[@id='wrapwrap']/header" position="replace">
+      <xpath expr="//div[@id='wrapwrap']/header/nav" position="replace">
       <header>
 
 
@@ -217,5 +217,4 @@
       </xpath>-->
     </template>
 
-  </data>
 </odoo>

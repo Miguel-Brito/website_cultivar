@@ -1,7 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_res_partner,access res.partner,model_res_partner,,1,0,0,0
 
-
+access_res_county,access.res.county,model_res_county,,1,1,1,1
+access_res_county_local,access.res.county.local,model_res_county_local,,1,1,1,1
 access_event_event,access.event.event,model_event_event,,1,1,1,1
 access_event_product,access.event.product,model_event_product,,1,1,1,1
 access_event_product_type,access.access.event.product.type,model_event_product_type,,1,1,1,1
+acess_res_partner_type, acess.res.partner.type,model_res_partner_type,,1,1,1,1

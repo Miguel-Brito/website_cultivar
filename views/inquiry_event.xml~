@@ -301,7 +301,7 @@
 	
 																	
 								 <div class="form-group row form-field o_website_form_required_custom">
-	                            <label class="col-lg-3 col-md-4 col-form-label" for="is_recurrent">Data é fixa ?</label>
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="is_fixed">Data é fixa ?</label>
 	                            <div class="col-lg-7 col-md-8">
 	                              <input type="checkbox" id="is_fixed" name="is_fixed"  value="True"/>
 													</div>

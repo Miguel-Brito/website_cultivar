@@ -182,7 +182,7 @@ class WebsiteCultivar(http.Controller):
         partner_type = request.env['res.partner.type'].sudo().search([])
         event_type = request.env['event.type'].sudo().search([])
         periodo = request.env['event.recurrence'].sudo().search([])
-        distritos = request.env['res.country.state'].sudo().search([('country_id', '=', 185)])
+        distritos = request.env['res.country.state'].sudo().search([])
         concelhos = request.env['res.county'].sudo().search([])
         freguesia = request.env['res.county.local'].sudo().search([])
         

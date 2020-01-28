@@ -25,7 +25,7 @@ class WebsiteCultivar(http.Controller):
         else:
             print ("\nClient IP: " + ip) 
         
-        ip_url = "http://api.ipstack.com/109.51.95.28?access_key=0fd42ce53c04501a1881ffd8bc9c00c0"
+        ip_url = "http://api.ipstack.com/109.51.95.28?access_key=0a9f4d7f438a0ccd2bbe98e8ae6d7b30"
         reply_ip = requests.get(ip_url)
         ip_content = reply_ip.json()
         lat = ip_content["latitude"]

@@ -1,498 +1,601 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
-  <data>
-<template id="event_inquiry_error" name="Event submission error" >
-			<t t-call="website.layout">
-				<div id="wrap" class="text_center-align">
-					<p style="color:green; margin-top: 7%; font-size: 200%">Erro, o email utilizado já está registado</p>
-				</div>
-				<div class="form-group text-center">
-					<a href="/event/inquiry" class="btn btn-colored btn-theme-colored btn-lg pt-15 pb-15" type="object">
-						Voltar para o Formulario
-					</a>
-				</div>
-			</t>
-		</template>
-		<template id="event_inquiry_success" name="Event submission success" >
-			<t t-call="website.layout">
-				<div id="wrap"  class="text_center-align">
-					<p style="color:green; margin-top: 5%; font-size: 200%">Registo efetuado com sucesso</p>
-				</div>
-				<div class="form-group text-center">
-					<a href="/" class="btn btn-colored btn-theme-colored btn-lg pt-15 pb-15" type="object">
-						Voltar á Página Inicial
-					</a>
-				</div>
-			</t>
-		</template>
-
-		<template id="event_inquiry" name="Event submission">
-			<t t-call="website.layout">
-				<div id="wrap" class="oe_structure">
-					<div class="container">
-						<div class="row">
-							<form method="POST" action="/event/inquiry/process" enctype="multipart/form-data" id="booking-form" class="booking-form p-50 mb-0" data-bg-color="rgba(255, 255, 255, 0.7)" style="background: rgba(255, 255, 255, 0.7) none repeat scroll 0% 0% ! important;">
-								<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
-								<div class="row">
-									<div class="col-sm-12" style="margin-top:3%">
-										<div class="col-xs-12 col-sm-4 col-md-4">	
-
-										<!-- Dados da entidade -->
-										
-											<div class="form-group">
-												<label for="self_description">
-													<a style="color:green" >Entidade</a>
-												</label>
-											</div>
-										
-
-										
-											<div class="form-group">
-												<input placeholder="Nome da entidade" type="text" name="entidade_nome" class="form-control" required="True"/>
-											</div>
-										
-
-										
-											<div class="form-group">
-												<label for="partner_type" style="display:none;">
-													Tipo de entidade organizadora
-												</label>
-												<select name="entidade_tipo" class="form-control" required="True">
-													<option value="" selected="True" disabled="True">
-														Selecione o tipo de entidade
-													</option>
-													<t t-foreach="partner_type" t-as="p_type">
-														<option t-attf-value="#{p_type.id}">
-															<t t-esc="p_type.name" />
-														</option>
-													</t>
-												</select>
-											</div>
-										
-
-										
-											<div class="form-group">
-												<input placeholder="E-mail (Utilizado para Acesso à Plataforma)" type="email" name="email" class="form-control" required="True"/>
-											</div>
-										
-
-									
-											<div class="form-group">
-												<input placeholder="Password (Para Acesso à Plataforma)" type="password" name="password" class="form-control" required="True"/>
-											</div>
-										
-
-										
-											<div class="form-group">
-												<input placeholder="Endereço" type="text" name="entidade_endereco" class="form-control" required="True"/>
-											</div>
-										
-
-									
-											<div class="form-group">
-												<input placeholder="Código Postal" type="text" name="entidade_zip" class="form-control" required="True"/>
-											</div>
-										
-										
-							
-											<div class="form-group">
-												<input placeholder="Local" type="text" name="entidade_localidade" class="form-control" required="True"/>
-											</div>
-									
-
-						
-											<div class="form-group">
-												<label for="distritos" style="display:none;">
-													Distrito / Provincia
-												</label>
-												<select name="entidade_distrito" class="form-control" required="True">
-													<option value="" selected="True" disabled="True">
-														Selecione Distrito / Provincia
-													</option>
-													<t t-foreach="distritos" t-as="state">
-														<option t-attf-value="#{state.id}">
-															<t t-esc="state.name" />
-														</option>
-													</t>
-												</select>
-											</div>
-									
-
-										
-											<div class="form-group">
-												<label for="concelhos" style="display:none;">
-													Concelho
-												</label>
-												<select name="entidade_concelho" class="form-control" required="True">
-													<option value="" selected="True" disabled="True">
-														Selecione Concelho
-													</option>
-													<t t-foreach="concelhos" t-as="c">
-														<option t-attf-value="#{c.id}">
-															<t t-esc="c.name" />
-														</option>
-													</t>
-												</select>
-											</div>
-									
-
-										
-											<div class="form-group">
-												<label for="freguesias" style="display:none;">
-													Freguesia
-												</label>
-												<select name="entidade_freguesia" class="form-control" required="True">
-													<option value="" selected="True" disabled="True">
-														Selecione Freguesia
-													</option>
-													<t t-foreach="freguesias" t-as="f">
-														<option t-attf-value="#{f.id}">
-															<t t-esc="f.name" />
-														</option>
-													</t>
-												</select>
-											</div>
-									
-
-										<!-- Contactos da Entidade Organizadora -->
-										
-											<div class="form-group">
-												<label>
-													<a style="color:green" >Contactos da Pessoa Responsável</a>
-												</label>
-											</div>
-									
-
-											<div class="form-group">
-												<input placeholder="Pessoa Responsável" type="text" name="pessoa_nome" class="form-control" required="True"/>
-											</div>
-										
-
-										
-											<div class="form-group">
-												<input placeholder="Telefone" type="text" name="pessoa_tel" class="form-control" required="True"/>
-											</div>
-										
-
-									
-											<div class="form-group">
-												<input placeholder="E-mail" type="text" name="pessoa_email" class="form-control" required="True"/>
-											</div>
-										</div>
-									
-									
-										<div class="col-xs-12 col-sm-8 col-md-8">
-										<!-- Evento -->
-										
-											<div class="form-group">
-												<label>
-													<a style="color:green">Evento</a>
-												</label>
-											</div>
-										
-
-										<!-- Data do evento -->
-									
-											<div class="form-group">
-												<input placeholder="Designação" type="text" name="evento_nome" class="form-control" required="True"/>
-											</div>
-									
-
-									
-											<div class="form-group">
-												Data Inicio
-												<input type="date" name="date_begin" class="form-control" required="True"/>
-											</div>
-										
-
-										
-											<div class="form-group">
-												Data de fim
-												<input type="date" name="date_end" class="form-control" required="True"/>
-											</div>
-										
-
-										
-											<div class="form-group">
-												É recurrente? <input type="checkbox" id="is_recurrent" name="is_recurrent"  value="True"/>
-											</div>
-									
-
-							
-											<div class="form-group">
-												<div id="is_fixed_div" style="display:none">
-													Data é fixa? <input type="checkbox" id="is_fixed" name="is_fixed"  value="True"/>
-												</div>
-											</div>
-										
-									
-											<div class="form-group">
-												<label for="periodo" style="display:none">
-													Periodicidade
-												</label>
-												<select id="recurrence_type" name="evento_perio" class="form-control" style="display:none">
-													<option value="" selected="True" disabled="True">
-														Selecione a periodicidade
-													</option>
-													<t t-foreach="periodo" t-as="p">
-														<option t-attf-value="#{p.id}">
-															<t t-esc="p.name" />
-														</option>
-													</t>
-												</select>
-											</div>
-										
-
-										
-
-										<!-- Informação do evento -->
-									
-											<div class="form-group">
-												<select name="evento_edicao" class="form-control" required="True">
-													<option value="" selected="true" disabled="disabled">
-														Número de Anos em que se realiza o evento
-													</option>
-													<option value="0">
-														Primeira vez
-													</option>
-													<option value="1-3">
-														1-3
-													</option>
-													<option value="4-10">
-														4-10
-													</option>
-													<option value="11-25">
-														11-25
-													</option>
-													<option value="26-50">
-														26-50
-													</option>
-													<option value="51-100">
-														51-100
-													</option>
-													<option value="100">
-														&gt;100
-													</option>
-												</select>
-											</div>
-										
-
-										
-											<div class="form-group">
-												<label for="event_type" style="display:none;">
-													Tipologia do Evento
-												</label>
-												<select name="evento_tipo" class="form-control" required="True">
-													<option value="" selected="True" disabled="True">
-														Selecione a tipologia
-													</option>
-													<t t-foreach="event_type" t-as="e_type">
-														<option t-attf-value="#{e_type.id}">
-															<t t-esc="e_type.name" />
-														</option>
-													</t>
-												</select>
-											</div>
-										
-
-									
-											<div class="form-group">
-												<textarea placeholder="Breve Descrição do Evento" class="form-control" name="evento_descricao"></textarea>
-											</div>
-										
-
-										<!-- Dados do local do evento -->
-										
-											<div class="form-group">
-												<label>
-													<a style="color:green" >Local de realização do Evento</a>
-												</label>
-											</div>
-										
-
-										
-											<div class="form-group">
-												<label for="distritos" style="display:none;">
-													Distrito / Provincia
-												</label>
-												<select name="evento_distrito" class="form-control" required="True">
-													<option value="" selected="True" disabled="True">
-														Selecione Distrito / Provincia
-													</option>
-													<t t-foreach="distritos" t-as="state">
-														<option t-attf-value="#{state.id}">
-															<t t-esc="state.name" />
-														</option>
-													</t>
-												</select>
-											</div>
-										
-
-										
-											<div class="form-group">
-												<label for="concelhos" style="display:none;">
-													Concelho
-												</label>
-												<select name="evento_concelho" class="form-control" required="True">
-													<option value="" selected="True" disabled="True">
-														Selecione Concelho
-													</option>
-													<t t-foreach="concelhos" t-as="c">
-														<option t-attf-value="#{c.id}">
-															<t t-esc="c.name" />
-														</option>
-													</t>
-												</select>
-											</div>
-										
-
-											<div class="form-group">
-												<label for="freguesias" style="display:none;">
-													Freguesia
-												</label>
-												<select name="evento_freguesia" class="form-control" required="True">
-													<option value="" selected="True" disabled="True">
-														Selecione Freguesia
-													</option>
-													<t t-foreach="freguesias" t-as="f">
-														<option t-attf-value="#{f.id}">
-															<t t-esc="f.name" />
-														</option>
-													</t>
-												</select>
-											</div>
-										
-
-											<div class="form-group">
-												<input placeholder="Local" type="text" name="evento_local" class="form-control" required="True"/>
-											</div>
-										
-		
-											
-											
-				
-	<!-- Tipo de produtos -->
-										
-											<div class="form-group">
-												<label>
-													<a style="color:green" >Informação sobre os produtos</a>
-												</label>
-											</div>
-										
-
-										
-											<div class="form-group">
-												<label for="products_type" style="display:none;">
-													Tipo de Produtos Transacionados
-												</label>
-												<select id="products_type_select" multiple="True" name="produtos_tipo" class="form-control" style="display:none;">
-													<t t-foreach="products_type" t-as="p_type">
-														<option t-attf-value="#{p_type.id}">
-															<t t-esc="p_type.name"/>
-														</option>
-													</t>
-												</select>
-											</div>
-										
-
-										<div class="col-sm-6">
-											<div style="display:none" class="form-group">
-												<label for="products" style="display:none;">
-													Produtos Transacionados
-												</label>
-												<select id="dropdownlist" name="produtos" class="form-control" style="display:none;">
-													<option value="-1" selected="true">
-														Selecione os produtos
-													</option>
-													<t t-foreach="products" t-as="p">
-														<option style="display:block" t-attf-value="#{int(p.product_type_id)}">
-															<t t-esc="p.name"/>
-														</option>
-													</t>
-												</select>
-											</div>
-										</div>
-
-											<div class="form-group">
-												<div id="all_products" style="display:none; height: 200px; width: 250px; overflow-y: scroll; border:2px solid #ccc; float:left;">
-													<t t-foreach="products" t-as="p">
-														<div t-attf-name="#{int(p.product_type_id)}">
-															<input type="checkbox" t-attf-value="#{p.id}"/><t t-esc="p.name"/>
-														</div>
-													</t>
-												</div>
-											</div>
-
-										<!-- Jquery, aplicar multiple nas categorias / filtro -->
-										<script>
-
-											$('#is_recurrent').change(function() {
-												if(this.checked) {
-													$("#recurrence_type").css("display", "block");
-													$("#is_fixed_div").css("display", "block");
-												}
-												else {
-													$("#recurrence_type").css("display", "none");
-													$("#is_fixed_div").css("display", "none");
-												}     
-											});
-
-
-
-											$("#products_type_select").on('change', function() {
-
-												var p_type = $('#products_type_select option:selected').map(function(a, item){return item.value;});
-												console.log(p_type)
-												if (p_type.length != 0){
-													$("#all_products").css("display", "block");
-													$("#all_products div").each(function() {
-														var produto = $(this).attr('name');
-														if ($.inArray(produto, p_type) != -1){
-															$(this).css("display", "block");
-														}
-														else {
-															$(this).css("display", "none");
-														}
-													});
-												}
-												else{
-													$("#all_products").css("display", "none");	
-												}
-											});
-
-
-
-											$('#all_products').multiselect({
-												includeSelectAllOption: true,
-												selectAllText: 'Todos',
-												nonSelectedText: 'Selecione uma categoria',
-												allSelectedText: 'Todos as categorias selecionadas'
-											});
-
-
-											$('#products_type_select').multiselect({
-												includeSelectAllOption: true,
-												selectAllText: 'Todos',
-												nonSelectedText: 'Selecione uma categoria',
-												allSelectedText: 'Todos as categorias selecionadas'
-											});
-
-										</script>
-
-										</div>
-									</div>
-								</div>
-								<div class="form-group text-center" style="margin-top:3%">
-									<button data-loading-text="Please wait..." class="btn btn-colored btn-theme-colored btn-lg pt-15 pb-15" type="submit">
-										Registar
-									</button>
-									<!-- <button t-attf-class="btn btn-primary btn-lg">Register Profile</button> -->
-								</div>
-							</form>
-						</div>
+	<odoo>
+	  <data>
+	<template id="event_inquiry_error" name="Event submission error" >
+				<t t-call="website.layout">
+					<div id="wrap" class="text_center-align">
+						<p style="color:green; margin-top: 7%; font-size: 200%">Erro, o email utilizado já está registado</p>
 					</div>
-				</div>
-			</t>
-		</template>
-	</data>
-</odoo>
+					<div class="form-group inq300 inq300 text-center">
+						<a href="/event/inquiry" class="btn btn-colored btn-theme-colored btn-lg pt-15 pb-15" type="object">
+							Voltar para o Formulario
+						</a>
+					</div>
+				</t>
+			</template>
+			<template id="event_inquiry_success" name="Event submission success" >
+				<t t-call="website.layout">
+					<div id="wrap"  class="text_center-align">
+						<p style="color:green; margin-top: 5%; font-size: 200%">Registo efetuado com sucesso</p>
+					</div>
+					<div class="form-group inq300 inq300 text-center">
+						<a href="/" class="btn btn-colored btn-theme-colored btn-lg pt-15 pb-15" type="object">
+							Voltar á Página Inicial
+						</a>
+					</div>
+				</t>
+			</template>
+	
+			<template id="event_inquiry" name="Event submission">
+
+	
+	                   <t t-call="website.layout">
+	                        <div id="wrap">
+	                            <div class="oe_structure">
+	                                <section class="pt8 pb8">
+	                                    <div class="container">
+	                                        <div class="row s_nb_column_fixed">
+	                                            <div class="col-lg-12 s_title pt16 pb16">
+	                                                <h1>Registar Evento</h1>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </section>
+	                            </div>
+	                            <div class="container mt-2">
+	                                <div class="row">
+	                                    <div class="col-lg-8">
+	                                        <div class="oe_structure">
+	                                            <section class="s_text_block">
+	                                                <div class="container">
+	                                                    <div class="row">
+	                                                        <div class="col-lg-12">
+	                                                            <p>
+	                                                                Contact us about anything related to our company or services.<br/>
+	                                                                We'll do our best to get back to you as soon as possible.
+	                                                            </p>
+	                                                        </div>
+	                                                    </div>
+	                                                </div>
+	                                            </section>
+	                                        </div>
+	                                        <div class="my-3" name="mail_button">
+	                                            
+	
+	
+	
+								<form method="POST" action="/event/inquiry/process" enctype="multipart/form-data" id="booking-form" class="booking-form p-50 mb-0" data-bg-color="rgba(255, 255, 255, 0.7)" style="background: rgba(255, 255, 255, 0.7) none repeat scroll 0% 0% ! important;">
+									<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+	
+	
+	
+	
+	
+	                      <div class="form-group row form-field o_website_form_required_custom ">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Entidade</label>
+	                            <div class="col-lg-7 col-md-8">
+	                                <input type="text" class="form-control o_website_form_input" name="entidade_nome" t-att-value="request.params.get('contact_name', '')" required=""/>
+	                            </div>
+								 </div>
+	
+	
+	
+	
+	                      <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Tipo de entidade organizadora</label>
+	                            <div class="col-lg-7 col-md-8">
+												<select name="entidade_tipo" class="form-control inq300" required="True">
+														<option value="" selected="True" disabled="True">
+															Selecione o tipo de entidade
+														</option>
+														<t t-foreach="partner_type" t-as="p_type">
+															<option t-attf-value="#{p_type.id}">
+																<t t-esc="p_type.name" />
+															</option>
+														</t>
+													</select>
+	                            </div>
+								 </div>
+	
+	
+											
+											
+	                      <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_email">E-mail</label>
+	                            <div class="col-lg-7 col-md-8">
+	                                <input type="text" class="form-control o_website_form_input" name="email"  required="True"/>
+	                            </div>
+								 </div>
+	
+											
+								 <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="password">Password</label>
+	                            <div class="col-lg-7 col-md-8">
+	                                <input type="password" class="form-control o_website_form_input" name="password" required="True"/>
+	                            </div>
+								 </div>		
+	
+	
+											
+	
+	                      <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Endereço</label>
+	                            <div class="col-lg-7 col-md-8">
+	                                <input type="text" class="form-control o_website_form_input" name="entidade_endereco" required=""/>
+	                            </div>
+								 </div>
+											
+	
+											
+	                      <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Código Postal</label>
+	                            <div class="col-lg-7 col-md-8">
+	                                <input type="text" class="form-control o_website_form_input" name="entidade_zip" required=""/>
+	                            </div>
+								 </div>
+	
+																		
+	
+											
+	                      <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Localidade</label>
+	                            <div class="col-lg-7 col-md-8">
+	                                <input type="text" class="form-control o_website_form_input" name="entidade_localidade" required=""/>
+	                            </div>
+								 </div>
+												
+
+							
+	                      <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Distrito</label>
+													 <div class="col-lg-7 col-md-8">
+													<select name="entidade_distrito" class="form-control inq300" required="True">
+													  
+														<option value="" selected="True" disabled="True">
+															Selecione Distrito / Provincia
+														</option>
+														<t t-foreach="distritos" t-as="state">
+															<option t-attf-value="#{state.id}">
+																<t t-esc="state.name" />
+															</option>
+														</t>
+													</select>
+												</div>
+									</div>
+	
+											
+	                      <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Concelho</label>
+																								                            <div class="col-lg-7 col-md-8">			
+													<select name="entidade_concelho" class="form-control inq300" required="True">
+														<option value="" selected="True" disabled="True">
+															Selecione Concelho
+														</option>
+														<t t-foreach="concelhos" t-as="c">
+															<option t-attf-value="#{c.id}">
+																<t t-esc="c.name" />
+															</option>
+														</t>
+													</select>
+												</div>
+												</div>
+										
+	
+											
+	                      <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Freguesia</label>
+												                            <div class="col-lg-7 col-md-8">		
+													<select name="entidade_freguesia" class="form-control " required="True">
+														<option value="" selected="True" disabled="True">
+															Selecione Freguesia
+														</option>
+														<t t-foreach="freguesias" t-as="f">
+															<option t-attf-value="#{f.id}">
+																<t t-esc="f.name" />
+															</option>
+														</t>
+													</select>
+												</div>
+											</div>
+	
+	
+	
+	
+	
+											<!-- Contactos da Entidade Organizadora -->
+											
+												<div class="form-group inq300">
+													<label>
+														<a style="color:green" >Contactos da Pessoa Responsável</a>
+													</label>
+												</div>
+										
+	
+	
+	                    <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Pessoa Responsável </label>
+	                            <div class="col-lg-7 col-md-8">
+	                                <input type="text" class="form-control o_website_form_input" name="pessoa_nome" required=""/>
+	                            </div>
+								 </div>
+	
+	
+	
+	
+	
+	                    <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Telefone </label>
+	                            <div class="col-lg-7 col-md-8">
+	                                <input type="text" class="form-control o_website_form_input" name="pessoa_tel" required="True"/>
+	                            </div>
+								 </div>
+	
+	
+										
+								
+	
+	                    <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">E-mail</label>
+	                            <div class="col-lg-7 col-md-8">
+	                                <input type="text" class="form-control o_website_form_input" name="pessoa_email" required="True"/>
+	                            </div>
+								 </div>		
+										
+										
+										
+										
+										
+										
+	
+											<!-- Evento -->
+											
+												<div class="form-group inq300">
+													<label>
+														<a style="color:green">Evento</a>
+													</label>
+												</div>
+											
+	
+											<!-- Data do evento -->
+												
+												
+												
+												
+								 <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Designação</label>
+	                            <div class="col-lg-7 col-md-8">
+	                                <input type="text" class="form-control o_website_form_input" name="evento_nome" required="True"/>
+	                            </div>
+								 </div>	
+										
+	
+										
+										
+								 <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="date_begin">Data Inicio</label>
+	                            <div class="col-lg-7 col-md-8">
+	                                <input type="date" class="form-control" name="date_begin" required="True"/>
+	                            </div>
+								 </div>	
+										
+										
+										
+								 <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="date_end">Data de Fim</label>
+	                            <div class="col-lg-7 col-md-8">
+	                                <input type="date" class="form-control" name="date_end" required="True"/>
+	                            </div>
+								 </div>	
+											
+	
+																	
+								 <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="is_recurrent">É recurrente?</label>
+	                            <div class="col-lg-7 col-md-8">
+	                                <input  type="checkbox" id="is_recurrent"  name="is_recurrent"  value="True" required="True"/>
+	                            </div>
+								 </div>			
+	
+		
+										
+	
+																	
+								 <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="is_recurrent">Data é fixa ?</label>
+	                            <div class="col-lg-7 col-md-8">
+	                              <input type="checkbox" id="is_fixed" name="is_fixed"  value="True"/>
+													</div>
+												</div>
+												
+												
+												
+												
+											
+												
+												
+												
+												               <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Periodicidade</label>
+													 <div class="col-lg-7 col-md-8">			
+													<select id="recurrence_type" name="evento_perio" class="form-control inq300" style="display:none">
+														<option value="" selected="True" disabled="True">
+															Selecione a periodicidade
+														</option>
+														<t t-foreach="periodo" t-as="p">
+															<option t-attf-value="#{p.id}">
+																<t t-esc="p.name" />
+															</option>
+														</t>
+													</select>
+												</div>
+												</div>
+											
+	
+											
+	
+											<!-- Informação do evento -->
+											
+											
+											
+											
+											               <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Número de Anos</label>
+	                             <div class="col-lg-7 col-md-8">	
+													<select name="evento_edicao" class="form-control inq300" required="True">
+														<option value="" selected="true" disabled="disabled">
+															Número de Anos em que se realiza o evento
+														</option>
+														<option value="0">
+															Primeira vez
+														</option>
+														<option value="1-3">
+															1-3
+														</option>
+														<option value="4-10">
+															4-10
+														</option>
+														<option value="11-25">
+															11-25
+														</option>
+														<option value="26-50">
+															26-50
+														</option>
+														<option value="51-100">
+															51-100
+														</option>
+														<option value="100">
+															&gt;100
+														</option>
+													</select>
+												</div>
+											</div>
+	
+											
+											      <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Tipologia do Evento</label>
+														<div class="col-lg-7 col-md-8">
+												
+													<select name="evento_tipo" class="form-control inq300" required="True">
+														<option value="" selected="True" disabled="True">
+															Selecione a tipologia
+														</option>
+														<t t-foreach="event_type" t-as="e_type">
+															<option t-attf-value="#{e_type.id}">
+																<t t-esc="e_type.name" />
+															</option>
+														</t>
+													</select>
+												</div>
+											</div>
+	
+											      <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Descrição</label>
+	                             <div class="col-lg-7 col-md-8">
+													<textarea placeholder="Breve Descrição do Evento" class="form-control o_website_form_input" name="evento_descricao"></textarea>
+												</div>
+												</div>
+	
+											<!-- Dados do local do evento -->
+											
+											      <div class="form-group">
+													<label>
+														<a style="color:green" >Local de realização do Evento</a>
+													</label>
+												</div>
+											
+	
+											      <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Distrito</label>
+	                            <div class="col-lg-7 col-md-8">
+													<select name="evento_distrito" class="form-control inq300" required="True">
+														<option value="" selected="True" disabled="True">
+															Selecione Distrito / Provincia
+														</option>
+														<t t-foreach="distritos" t-as="state">
+															<option t-attf-value="#{state.id}">
+																<t t-esc="state.name" />
+															</option>
+														</t>
+													</select>
+												</div>
+											</div>
+	
+											      <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Concelho</label>
+	                             <div class="col-lg-7 col-md-8">
+													<select name="evento_concelho" class="form-control" required="True">
+														<option value="" selected="True" disabled="True">
+															Selecione Concelho
+														</option>
+														<t t-foreach="concelhos" t-as="c">
+															<option t-attf-value="#{c.id}">
+																<t t-esc="c.name" />
+															</option>
+														</t>
+													</select>
+												</div>
+											</div>
+	
+	
+											      <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Freguesia</label>
+	                             <div class="col-lg-7 col-md-8">
+													<select name="evento_freguesia" class="form-control inq300" required="True">
+														<option value="" selected="True" disabled="True">
+															Selecione Freguesia
+														</option>
+														<t t-foreach="freguesias" t-as="f">
+															<option t-attf-value="#{f.id}">
+																<t t-esc="f.name" />
+															</option>
+														</t>
+													</select>
+												</div>
+												</div>
+											
+	
+											
+																		 <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Local</label>
+	                            <div class="col-lg-7 col-md-8">
+	                                <input type="text" class="form-control o_website_form_input" name="evento_local" required="True"/>
+	                            </div>
+								 </div>	
+			
+												
+												
+					
+		<!-- Tipo de produtos -->
+											
+											      <div class="form-group">
+													<label>
+														<a style="color:green" >Informação sobre os produtos</a>
+													</label>
+												</div>
+											
+	
+											
+											      <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Tipo de Produtos</label>
+	                            <div class="col-lg-7 col-md-8">
+													<select id="products_type_select" multiple="True" name="produtos_tipo" class="form-control" style="display:none;">
+														<t t-foreach="products_type" t-as="p_type">
+															<option t-attf-value="#{p_type.id}">
+																<t t-esc="p_type.name"/>
+															</option>
+														</t>
+													</select>
+												</div>
+											</div>
+	
+											
+											      <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Produtos</label>
+	                                                        <div class="col-lg-7 col-md-8">
+													<select id="dropdownlist" name="produtos" class="form-control inq300">
+														<option value="-1" selected="true">
+															Selecione os produtos
+														</option>
+														<t t-foreach="products" t-as="p">
+															<option style="display:block" t-attf-value="#{int(p.product_type_id)}">
+																<t t-esc="p.name"/>
+															</option>
+														</t>
+													</select>
+												</div>
+											</div>
+											
+	
+											<div class="col-sm-6">
+											      <div class="form-group row form-field o_website_form_required_custom">
+													<div id="all_products" style="display:none; height: 200px; width: 250px; overflow-y: scroll; border:2px solid #ccc; float:left;">
+														<t t-foreach="products" t-as="p">
+															<div t-attf-name="#{int(p.product_type_id)}">
+																<input type="checkbox" t-attf-value="#{p.id}"/><t t-esc="p.name"/>
+															</div>
+														</t>
+													</div>
+												</div>
+											</div>
+	
+											<!-- Jquery, aplicar multiple nas categorias / filtro -->
+											<script>
+	
+												$('#is_recurrent').change(function() {
+													if(this.checked) {
+														$("#recurrence_type").css("display", "block");
+														$("#is_fixed_div").css("display", "block");
+													}
+													else {
+														$("#recurrence_type").css("display", "none");
+														$("#is_fixed_div").css("display", "none");
+													}     
+												});
+	
+	
+	
+												$("#products_type_select").on('change', function() {
+	
+													var p_type = $('#products_type_select option:selected').map(function(a, item){return item.value;});
+													console.log(p_type)
+													if (p_type.length != 0){
+														$("#all_products").css("display", "block");
+														$("#all_products div").each(function() {
+															var produto = $(this).attr('name');
+															if ($.inArray(produto, p_type) != -1){
+																$(this).css("display", "block");
+															}
+															else {
+																$(this).css("display", "none");
+															}
+														});
+													}
+													else{
+														$("#all_products").css("display", "none");	
+													}
+												});
+	
+	
+	
+	
+												$('#products_type_select').multiselect({
+													includeSelectAllOption: true,
+													selectAllText: 'Todos',
+													nonSelectedText: 'Selecione uma categoria',
+													allSelectedText: 'Todos as categorias selecionadas'
+												});
+	
+											</script>
+	
+											
+										
+									
+											      <div class="form-group row form-field o_website_form_required_custom">
+										<button data-loading-text="Please wait..." class="btn btn-colored btn-theme-colored btn-lg pt-15 pb-15" type="submit">
+											Registar
+										</button>
+										<!-- <button t-attf-class="btn btn-primary btn-lg">Register Profile</button> -->
+									</div>
+								</form>
+			
+			
+			
+			
+			
+			
+			                                  </div>
+			                              </div>
+			                              <div class="col-lg-4">
+			                                  <t t-call="website.company_description"/>
+			                              </div>
+			                          </div>
+			                      </div>
+			                      <div class="oe_structure mt-2"/>
+			                  </div>
+	                    </t>
+	
+	
+				
+			</template>
+		</data>
+	</odoo>

@@ -20,7 +20,7 @@
                             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#top_menu_collapse">
                                 <span class="navbar-toggler-icon"/>
                             </button>
-                            <div  id="top_right" style="width: 42.5%;">
+                            <div  id="top_right" style="width: 33.33%;">
               <div>
                 <div class="row local-bg local_subcat-border" style="margin-right: 0px; margin-left: 0px;">
 

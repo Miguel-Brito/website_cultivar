@@ -208,12 +208,8 @@ padding: 10px;
 
   /*form inquiry*/
   
-.form-control {
-    width: 300px;
-}
-
-.form-group {
-    width: 300px;
+.inq300{
+width: 300px;!important;
 }
 
 
@@ -276,7 +272,20 @@ a {
 }
 
 
+.btn-primary {
+
+    color: #FFFFFF;
+    background-color: green;
+    border-color: green;
+
+}
+
 .btn {
+    border-radius: 0;
+}
+
+
+.form-control {
     border-radius: 0;
 }
 

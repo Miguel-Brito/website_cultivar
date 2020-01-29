@@ -47,7 +47,7 @@
      END of Backgrounds Styles */
 
     /* HR Styles */
-    .weekday-hr{border: 2px solid white; background: white; width: 100%; vertical-align: middle; padding: 0px 0;}
+    .weekday-hr{border: 2px solid white; background: white; vertical-align: middle; padding: 0px 0;}
     .temps-hr{border: 0.5px solid white; background: white; width: 100%; margin: 5% 0; padding: 0px 0;}
     .today-hr{border: 0.5px solid #6EB043; background: #6EB043; width: 100%; margin: 2% 0; padding: 0px 0;}
     .today2-hr{border: 0.5px solid #6EB043; background: #6EB043; width: 100%; margin: 2% 5% 0 0; padding: 0px 0; margin-top: 10px;} 
@@ -60,7 +60,7 @@
     .temp_day-text{font-family: Rajdhani; color: white; font-size: 15px; font-weight: bold;}
     .week_day-text{font-family: Rajdhani; color: white; font-size: 14px; font-weight: bold; text-align: right; margin-left: -1%; direction: rtl;}
     .today-day-text{font-family: Rajdhani; color: white; font-size: 50px; font-weight: bolder; text-align: right; margin-top: -5%; margin-bottom: 0px;}
-    .day-text{font-family: Rajdhani; color: white; font-size: 50px; font-weight: bolder; text-align: right; margin-top: -5%; margin-bottom: 0px;margin-right: -65px;}
+    .day-text{font-family: Rajdhani; color: white; font-size: 50px; font-weight: bolder; text-align: right; margin-top: -5%; margin-bottom: 0px;margin-right: -77px;}
     .day-text-low{font-family: Rajdhani; color: white !Important; font-size: 15px; font-weight: bolder; text-align: right; margin-top: -5%; margin-bottom: 0px;}
     
     .today_week_day-text{font-family: Rajdhani; color: #84B842; font-size: 18px; text-align: right; margin-top: 5%; margin-bottom: -2%}
@@ -85,7 +85,8 @@
 
     /* Cols in clearfix all with the same height style */
     .clearfix{
-        overflow: hidden;
+    	overflow: hidden;
+       
     }
     .clearfix [class*="col-"]{
         margin-bottom: -99999px;

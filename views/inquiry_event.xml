@@ -68,7 +68,7 @@
 									<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
 	
 	
-	
+									<div type="hidden" name="csrf_token" t-att-value="products_subtype" />
 	
 	
 	                      <div class="form-group row form-field o_website_form_required_custom ">
@@ -478,7 +478,7 @@
 											      <div class="form-group row form-field o_website_form_required_custom">
 	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Tipo de Produtos</label>
 	                            <div class="col-lg-7 col-md-8">
-													<select id="products_type_select" multiple="True" name="produtos_tipo" class="form-control" style="display:none;">
+													<select id="products_type_select" multiple="True" name="produtos_tipo" class="form-control" style="display:none;" onchange="typefunc()">
 														<t t-foreach="products_type" t-as="p_type">
 															<option t-attf-value="#{p_type.id}">
 																<t t-esc="p_type.name"/>
@@ -487,6 +487,25 @@
 													</select>
 												</div>
 											</div>
+											
+											
+	
+											
+											      <div class="form-group row form-field o_website_form_required_custom">
+	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Subtipo de Produtos</label>
+	                            <div class="col-lg-7 col-md-8">
+													<select id="products_subtype_select" multiple="True" name="produtos_subtipo" class="form-control" >
+														<t t-foreach="products_subtype" t-as="p_stype">
+
+															<option t-attf-value="#{p_stype.id}">
+																<t t-esc="p_stype.name"/>
+															</option>
+
+														</t>
+													</select>
+												</div>
+											</div>
+											
 	
 											
 											      <div class="form-group row form-field o_website_form_required_custom">
@@ -503,7 +522,7 @@
 														</t>
 													</select>
 												</div>
-											</div>
+											</div> 
 											
 	
 											<div class="col-sm-6">
@@ -532,7 +551,10 @@
 													}     
 												});
 	
-	
+
+
+
+
 	
 												$("#products_type_select").on('change', function() {
 	

@@ -178,6 +178,9 @@ class WebsiteCultivar(http.Controller):
     def event_inquiry(self, **kwargs):
         # states = request.env['res.country.state'].search([])
         products_type = request.env['event.product.type'].sudo().search([('parent_id', '=', False)])
+        products_subtype = request.env['event.product.type'].sudo().search([('parent_id', '=', products_type.ids)])
+        
+        
         product = request.env['event.product'].sudo().search([])
         partner_type = request.env['res.partner.type'].sudo().search([])
         event_type = request.env['event.type'].sudo().search([])
@@ -185,9 +188,13 @@ class WebsiteCultivar(http.Controller):
         distritos = request.env['res.country.state'].sudo().search([])
         concelhos = request.env['res.county'].sudo().search([])
         freguesia = request.env['res.county.local'].sudo().search([])
+        print('##########################')
+        print(products_type)
+        print(products_subtype)
         
         return http.request.render('website_cultivar.event_inquiry', {
             'products_type': products_type,
+            'products_subtype' : products_subtype,
             'products': product,
             'partner_type': partner_type,
             'event_type': event_type,

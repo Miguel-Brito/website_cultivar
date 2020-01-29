@@ -169,10 +169,10 @@ float: left;"/>
 								</div>
 								<!--<div class="col-xs-6 col-sm-6 col-md-6 pull-right">-->
 								<div class="col-6 col-md-6 col-lg-6 float-right">
-																		<div class="week_day-text">
+																		<div class="row week_day-text">
 											<span t-esc="cal[1]"/>
 										</div>
-									<div class="row">
+									<div class="row" style="float:right;">
 
 										<div class="day-text">
 											<span class="day-text" t-esc="cal[0]"/>

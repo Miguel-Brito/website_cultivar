@@ -67,8 +67,8 @@
 								<form method="POST" action="/event/inquiry/process" enctype="multipart/form-data" id="booking-form" class="booking-form p-50 mb-0" data-bg-color="rgba(255, 255, 255, 0.7)" style="background: rgba(255, 255, 255, 0.7) none repeat scroll 0% 0% ! important;">
 									<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
 	
-	
-									<div type="hidden" name="csrf_token" t-att-value="products_subtype" />
+									<div type="hidden" name="types" t-att-value="products_type" />
+									<div type="hidden" name="subtypes" t-att-value="products_subtype" />
 	
 	
 	                      <div class="form-group row form-field o_website_form_required_custom ">
@@ -511,7 +511,7 @@
 											      <div class="form-group row form-field o_website_form_required_custom">
 	                            <label class="col-lg-3 col-md-4 col-form-label" for="contact_name">Produtos</label>
 	                                                        <div class="col-lg-7 col-md-8">
-													<select id="dropdownlist" name="produtos" class="form-control inq300">
+													<select id="dropdownlist" name="produtos" class="form-control inq300" multiple="True">
 														<option value="-1" selected="true">
 															Selecione os produtos
 														</option>
@@ -536,7 +536,8 @@
 													</div>
 												</div>
 											</div>
-	
+
+
 											<!-- Jquery, aplicar multiple nas categorias / filtro -->
 											<script>
 	
@@ -551,8 +552,6 @@
 													}     
 												});
 	
-
-
 
 
 	

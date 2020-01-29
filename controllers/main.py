@@ -191,6 +191,7 @@ class WebsiteCultivar(http.Controller):
         print('##########################')
         print(products_type)
         print(products_subtype)
+	
         
         return http.request.render('website_cultivar.event_inquiry', {
             'products_type': products_type,

@@ -126,7 +126,7 @@ float: left;"/>
 						<!-- Day code -->
 						<!--<div style="height:165px" t-attf-class="col-xs-6 col-sm-3 col-md-2 {{monthcolor}} day-border same_height-divs">-->
 						<div style="height:165px" t-attf-class="col-6 col-md-3 col-lg-2 {{monthcolor}} day-border same_height-divs">
-							<div class="clearfix event_day-text" style="height:35px">
+							<div class="event_day-text" style="height:35px">
 								<div t-if="cal[0] == 1" class="day_week_day-text">
 									<span t-esc="cal[4]" />
 									<span t-esc="cal[5]" />
@@ -172,7 +172,7 @@ float: left;"/>
 																		<div class="week_day-text">
 											<span t-esc="cal[1]"/>
 										</div>
-									<div class="row">
+									<div class="row" style="float:right;">
 
 										<div class="day-text">
 											<span class="day-text" t-esc="cal[0]"/>

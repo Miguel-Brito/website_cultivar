@@ -60,7 +60,7 @@
     .temp_day-text{font-family: Rajdhani; color: white; font-size: 15px; font-weight: bold;}
     .week_day-text{font-family: Rajdhani; color: white; font-size: 14px; font-weight: bold; text-align: right; margin-left: -1%; direction: rtl;}
     .today-day-text{font-family: Rajdhani; color: white; font-size: 50px; font-weight: bolder; text-align: right; margin-top: -5%; margin-bottom: 0px;}
-    .day-text{font-family: Rajdhani; color: white; font-size: 50px; font-weight: bolder; text-align: right; margin-top: -5%; margin-bottom: 0px;margin-right: -77px;}
+    .day-text{font-family: Rajdhani; color: white; font-size: 50px; font-weight: bolder; text-align: right; margin-top: -5%; margin-bottom: 0px;}
     .day-text-low{font-family: Rajdhani; color: white !Important; font-size: 15px; font-weight: bolder; text-align: right; margin-top: -5%; margin-bottom: 0px;}
     
     .today_week_day-text{font-family: Rajdhani; color: #84B842; font-size: 18px; text-align: right; margin-top: 5%; margin-bottom: -2%}
@@ -214,7 +214,7 @@ padding: 10px;
 .breadcrumb {
     background: transparent;!important;
     font-family: Rajdhani; 
-    color: white;
+    color: black;
     border-radius: 0;
 
     
